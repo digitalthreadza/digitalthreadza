@@ -47,6 +47,7 @@ export type ConfigResult<T extends Record<string, ConfigurationItem<any>>> = {
 ## 😕 What Challenged or Confused Me
 Things that slowed me down or felt unclear:
 - So one thing that did come up is the error related to setting `type: module` in `package.json`
+- Reading the typescript code with good comprehension
 
 ---
 
