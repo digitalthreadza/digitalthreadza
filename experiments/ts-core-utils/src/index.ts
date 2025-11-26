@@ -1,24 +1,27 @@
-import 'dotenv/config';
-import { ConfigurationItem } from './types/configurationItem.js';
-import { loadConfiguration } from './utils/loadConfiguration.js';
+/**
+ * Public API exports for ts-core-utils
+ */
 
-const configurationSchema: Record<string, ConfigurationItem<any>> = {
-    port: {
-        envKey: 'PORT',
-        required: true,
-        parseFn: (value: string) => Number(value),
-    },
-    apiUrl: {
-        envKey: 'API_URL',
-        required: true,
-        parseFn: (value: string) => value,
-    },
-    enableAI: {
-        envKey: 'ENABLE_AI',
-        required: false,
-        parseFn: (value: string) => value === 'true',
-    }
-};
+// Main configuration loader
+export { loadConfiguration } from './config/loadConfiguration.js';
 
-const configuration = loadConfiguration(configurationSchema);
-console.log(configuration);
+// Types
+export type {
+    ConfigurationItem,
+    RequiredConfigItem,
+    OptionalConfigItem,
+    ConfigResult,
+} from './config/types.js';
+
+// Common parsers
+export { parsers } from './config/parsers.js';
+
+// Helper functions
+export {
+    createConfigItem,
+    createRequiredConfigItem,
+    createOptionalConfigItem,
+} from './config/helpers.js';
+
+// Errors
+export { ConfigurationError } from './config/errors.js';
