@@ -1,4 +1,3 @@
-{"variant":"standard","title":"Daily Technical Session Notes Template","id":"0001"}
 # Daily Technical Session – [2025-11-26]
 
 ## Focus Area
