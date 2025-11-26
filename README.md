@@ -1,4 +1,3 @@
-{"variant":"standard","title":"Digital Thread README Template","id":"58291"}
 # Digital Thread Evolution — Technical Growth Log
 
 > A living record of my progression as an engineer, focused on mastering AI systems, backend architecture, and TypeScript at a professional level.  
