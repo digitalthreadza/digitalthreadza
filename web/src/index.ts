@@ -6,8 +6,18 @@ import { serve } from '@hono/node-server';
 import { jsxRenderer } from 'hono/jsx-renderer';
 import { indexRoute } from './routes/index.js';
 import { postRoute } from './routes/posts/[slug].js';
-
 import { serveStatic } from '@hono/node-server/serve-static';
+import { initializePostCache } from './utils/postCache.js';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+// Get posts directory path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const postsDir = join(__dirname, '../posts');
+
+// Initialize post cache before starting server
+initializePostCache(postsDir);
 
 const app = new Hono();
 

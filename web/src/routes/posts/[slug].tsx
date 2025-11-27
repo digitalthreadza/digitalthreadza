@@ -1,16 +1,9 @@
 import { Layout } from '../../components/Layout.js';
-import { getPostBySlug } from '../../utils/markdown.js';
+import { getPostBySlugFromCache } from '../../utils/postCache.js';
 import { raw } from 'hono/html';
-import { join } from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const postsDir = join(__dirname, '../../../posts');
 
 export function postRoute(slug: string) {
-    const post = getPostBySlug(postsDir, slug);
+    const post = getPostBySlugFromCache(slug);
     
     if (!post) {
         return (

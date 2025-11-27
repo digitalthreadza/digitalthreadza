@@ -1,15 +1,8 @@
 import { Layout } from '../components/Layout.js';
-import { getAllPosts } from '../utils/markdown.js';
-import { join } from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const postsDir = join(__dirname, '../../posts');
+import { getAllPostsFromCache } from '../utils/postCache.js';
 
 export function indexRoute() {
-    const posts = getAllPosts(postsDir);
+    const posts = getAllPostsFromCache();
     
     return (
         <Layout title="Home - Markdown Blog">
